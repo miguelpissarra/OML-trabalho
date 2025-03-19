@@ -1,5 +1,5 @@
 {
-    "model_name": "logistic_reg",
+    "model_name": "random_forest",
     "model_version": "champion",
     "tracking_base_url": "http://mlflow-tracking-server",
     "tracking_port": 5000,

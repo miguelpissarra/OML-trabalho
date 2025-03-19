@@ -2,7 +2,7 @@ services:
 
   mlflow-tracking-server:
     image: ghcr.io/mlflow/mlflow
-    command: mlflow ui --port 5000 --host 0.0.0.0 --backend-store-uri ./mlruns --artifacts-destination ./mlruns
+    command: mlflow ui --gunicorn-opts "--timeout=300" --port 5000 --host 0.0.0.0 --backend-store-uri ./mlruns --artifacts-destination ./mlruns
     volumes:
       - ./mlruns:/mlruns
     container_name: mlflow-tracking
