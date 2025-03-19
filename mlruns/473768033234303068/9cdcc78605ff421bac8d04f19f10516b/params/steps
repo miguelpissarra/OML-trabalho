@@ -1,0 +1,2 @@
+[('scaler', MinMaxScaler()), ('model_', RandomForestClassifier(class_weight='balanced', n_estimators=1000,
+                       random_state=42))]
