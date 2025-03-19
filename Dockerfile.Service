@@ -1,0 +1,20 @@
+# Usa a imagem oficial do Miniconda como base
+FROM continuumio/miniconda3
+
+# Define o diretório de trabalho no contentor
+WORKDIR /app
+
+# Copia o ficheiro de definição do ambiente para o contentor
+COPY conda.yaml .
+
+# Cria o ambiente conda a partir do ficheiro conda.yaml
+RUN conda env create -f conda.yaml
+
+# Copia o código da aplicação para o contentor
+COPY config config
+COPY src src
+
+EXPOSE 5002
+
+# Executa a aplicação FastAPI
+CMD conda run --no-capture-output -n OML-trabalho python src/app/main.py
