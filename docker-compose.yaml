@@ -1,0 +1,21 @@
+services:
+
+  mlflow-tracking-server:
+    image: ghcr.io/mlflow/mlflow
+    command: mlflow ui --port 5000 --host 0.0.0.0 --backend-store-uri ./mlruns --artifacts-destination ./mlruns
+    volumes:
+      - ./mlruns:/mlruns
+    container_name: mlflow-tracking
+    ports:
+      - 5000:5000
+
+  api-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.Service
+      tags:
+        - api-service:latest
+    image: api-service
+    container_name: api-service
+    ports:
+      - 5002:5002
