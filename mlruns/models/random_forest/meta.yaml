@@ -1,5 +1,6 @@
-aliases: {}
+aliases:
+  champion: '1'
 creation_timestamp: 1742387697552
 description: ''
-last_updated_timestamp: 1742387698091
+last_updated_timestamp: 1742387938837
 name: random_forest
